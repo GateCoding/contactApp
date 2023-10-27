@@ -16,6 +16,12 @@ class _ContactListState extends State<ContactList> {
     ["4 Contact", false],
     ["5 Contact", false]
   ];
+  void change(bool? value, int index) {
+    setState(() {
+      liste[index][1] = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,10 +30,9 @@ class _ContactListState extends State<ContactList> {
           itemCount: liste.length,
           itemBuilder: (context, index) {
             return ContactBox(
-              nomContact: liste[index][0],
-              selContact: liste[index][1],
-              onChanged: (value) => {},
-            );
+                nomContact: liste[index][0],
+                selContact: liste[index][1],
+                onChanged: (value) => change(value, index));
           }),
     );
   }
