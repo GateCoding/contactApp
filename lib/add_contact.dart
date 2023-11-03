@@ -13,6 +13,22 @@ class AddContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AlertDialog(
+      content: SizedBox(
+          height: 120,
+          child: Column(
+            children: [
+              TextField(
+                controller: controller,
+              ),
+              Row(
+                children: [
+                  MaterialButton(onPressed: onAdd, child: Text("Add")),
+                  MaterialButton(onPressed: onCancel, child: Text("Cancel"))
+                ],
+              )
+            ],
+          )),
+    );
   }
 }
